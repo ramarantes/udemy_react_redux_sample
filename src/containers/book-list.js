@@ -4,6 +4,7 @@ import  {connect}  from 'react-redux';
 import selectBook from '../actions/index';
 import {bindActionCreators} from 'redux';
 
+
 class BookList extends Component {
     renderList(){
         
@@ -13,6 +14,7 @@ class BookList extends Component {
                     key={book.title} 
                     book={book}
                     onClick={() => this.props.selectBook(book)} />
+                    
             )
         })
     }
@@ -21,6 +23,7 @@ class BookList extends Component {
         return(
             <ul className="list-group col-sm-4">
                 {this.renderList()}
+                {this.props.counter}
             </ul>
         )
     }
@@ -28,7 +31,8 @@ class BookList extends Component {
 function mapStateToProps(state){
     //whatever is returned will show up as props inside of booklist
     return {
-        books: state.books
+        books: state.books,
+        counter: state.counter
     };  
 }
 

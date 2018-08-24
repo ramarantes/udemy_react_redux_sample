@@ -1,7 +1,7 @@
-export default function selectBook(book){
+export default function(book){
     console.log('a book has been selected',book.title);
     return {
-        type:'ADD_TEST',
-        text:'tananana'
+        type:'BOOK_SELECTED',
+        payload: book
     };
 }
